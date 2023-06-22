@@ -118,3 +118,17 @@ const riskujCategories = [
         ],
     },
 ];
+
+function addCategory(category) {
+    const column = document.createElement("div");
+    column.classList.add("movie-column");
+
+    const movieTitle = document.createElement("div");
+    movieTitle.classList.add("movie-title");
+    movieTitle.innerHTML = category.movie;
+
+    column.appendChild(movieTitle);
+    game.append(column);
+}
+
+riskujCategories.forEach((category) => addCategory(category));

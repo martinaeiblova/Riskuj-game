@@ -129,6 +129,21 @@ function addCategory(category) {
 
     column.appendChild(movieTitle);
     game.append(column);
+
+    category.questions.forEach((question) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        column.appendChild(card);
+
+        if (question.level === "easy") {
+            card.innerHTML = 100;
+        } else if (question.level === "medium") {
+            card.innerHTML = 200;
+        } else if (question.level === "hard") {
+            card.innerHTML = 300;
+        }
+    });
 }
 
 riskujCategories.forEach((category) => addCategory(category));

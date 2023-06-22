@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(19, 18, 18);
-    color: white;
+    color: rgb(230, 226, 226);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,8 @@ body {
     font-family: Verdana;
 }
 
-.table {
+#game {
+    display: flex;
     background-color: rgb(3, 44, 30);
 }
 

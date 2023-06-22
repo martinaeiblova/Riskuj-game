@@ -143,6 +143,12 @@ function addCategory(category) {
         } else if (question.level === "hard") {
             card.innerHTML = 300;
         }
+
+        card.setAttribute("data-question", question.question);
+        card.setAttribute("data-answer-1", question.answer[0]);
+        card.setAttribute("data-answer-2", question.answer[1]);
+        card.setAttribute("data-correct", question.correct);
+        card.setAttribute("data-value", card.getInnerHTML());
     });
 }
 

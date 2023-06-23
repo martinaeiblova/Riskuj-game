@@ -159,6 +159,7 @@ riskujCategories.forEach((category) => addCategory(category));
 function turnCard() {
     this.innerHTML = "";
     this.style.fontSize = "15px";
+    this.style.lineHeight = "20px";
 
     const turnedCard = document.createElement("div");
     turnedCard.classList.add("turn_card");

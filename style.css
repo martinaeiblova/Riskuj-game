@@ -33,3 +33,9 @@ body {
 .card:hover {
     cursor: pointer;
 }
+
+.first-button,
+.second-button {
+    padding: 3px;
+    margin: 2px;
+}

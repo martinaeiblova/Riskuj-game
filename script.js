@@ -149,7 +149,29 @@ function addCategory(category) {
         card.setAttribute("data-answer-2", question.answer[1]);
         card.setAttribute("data-correct", question.correct);
         card.setAttribute("data-value", card.getInnerHTML());
+
+        card.addEventListener("click", turnCard);
     });
 }
 
 riskujCategories.forEach((category) => addCategory(category));
+
+function turnCard() {
+    this.innerHTML = "";
+    this.style.fontSize = "15px";
+
+    const turnedCard = document.createElement("div");
+    turnedCard.classList.add("turn_card");
+
+    turnedCard.innerHTML = this.getAttribute("data-question");
+
+    const firstButton = document.createElement("button");
+    const secondButton = document.createElement("button");
+    firstButton.classList.add("first-button");
+    secondButton.classList.add("second-button");
+
+    firstButton.innerHTML = this.getAttribute("data-answer-1");
+    secondButton.innerHTML = this.getAttribute("data-answer-2");
+
+    this.append(turnedCard, firstButton, secondButton);
+}

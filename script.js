@@ -175,4 +175,7 @@ function turnCard() {
     secondButton.innerHTML = this.getAttribute("data-answer-2");
 
     this.append(turnedCard, firstButton, secondButton);
+
+    const allCards = Array.from(document.querySelectorAll(".card"));
+    allCards.forEach((card) => card.removeEventListener("click", turnCard));
 }

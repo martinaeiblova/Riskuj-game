@@ -39,3 +39,11 @@ body {
     padding: 3px;
     margin: 2px;
 }
+
+.card-wrong-answer {
+    background-color: rgb(247, 45, 45);
+    border-top: 7px solid rgb(250, 71, 71);
+    border-right: 7px solid rgb(173, 6, 6);
+    border-bottom: 7px solid rgb(173, 6, 6);
+    border-left: 7px solid rgb(248, 12, 12);
+}

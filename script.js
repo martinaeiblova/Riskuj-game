@@ -174,8 +174,23 @@ function turnCard() {
     firstButton.innerHTML = this.getAttribute("data-answer-1");
     secondButton.innerHTML = this.getAttribute("data-answer-2");
 
+    firstButton.addEventListener("click", checkAnswer);
+    secondButton.addEventListener("click", checkAnswer);
+
     this.append(turnedCard, firstButton, secondButton);
 
     const allCards = Array.from(document.querySelectorAll(".card"));
     allCards.forEach((card) => card.removeEventListener("click", turnCard));
+}
+
+function checkAnswer() {
+    const cardOfButton = this.parentElement;
+    console.log(cardOfButton);
+
+    if (cardOfButton.getAttribute("data-correct") === this.innerHTML) {
+        this.parentElement.innerHTML = "";
+    } else {
+        this.parentElement.innerHTML = "";
+        cardOfButton.classList.add("card-wrong-answer");
+    }
 }

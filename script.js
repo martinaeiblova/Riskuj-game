@@ -1,5 +1,7 @@
 const game = document.querySelector("#game");
 const card = document.querySelector(".card");
+const scoreElement = document.querySelector("#score");
+let score = 0;
 
 const riskujCategories = [
     {
@@ -163,8 +165,10 @@ function turnCard() {
 
     const turnedCard = document.createElement("div");
     turnedCard.classList.add("turn_card");
-
     turnedCard.innerHTML = this.getAttribute("data-question");
+
+    const allCards = Array.from(document.querySelectorAll(".card"));
+    allCards.forEach((card) => card.removeEventListener("click", turnCard));
 
     const firstButton = document.createElement("button");
     const secondButton = document.createElement("button");
@@ -178,19 +182,21 @@ function turnCard() {
     secondButton.addEventListener("click", checkAnswer);
 
     this.append(turnedCard, firstButton, secondButton);
-
-    const allCards = Array.from(document.querySelectorAll(".card"));
-    allCards.forEach((card) => card.removeEventListener("click", turnCard));
 }
 
 function checkAnswer() {
+    const allCards = Array.from(document.querySelectorAll(".card"));
+    allCards.forEach((card) => card.addEventListener("click", turnCard));
+
     const cardOfButton = this.parentElement;
-    console.log(cardOfButton);
 
     if (cardOfButton.getAttribute("data-correct") === this.innerHTML) {
-        this.parentElement.innerHTML = "";
+        const currentScore = parseInt(cardOfButton.getAttribute("data-value"));
+        cardOfButton.innerHTML = currentScore;
+        score = score + currentScore;
+        scoreElement.innerHTML = `${score}`;
     } else {
-        this.parentElement.innerHTML = "";
+        cardOfButton.innerHTML = "0";
         cardOfButton.classList.add("card-wrong-answer");
     }
 }

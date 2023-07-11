@@ -195,8 +195,21 @@ function checkAnswer() {
         cardOfButton.innerHTML = currentScore;
         score = score + currentScore;
         scoreElement.innerHTML = `${score}`;
+
+        setTimeout(() => {
+            while (cardOfButton.firstChild) {
+                cardOfButton.removeChild(cardOfButton.lastChild);
+            }
+            cardOfButton.innerHTML = cardOfButton.getAttribute("data-value");
+        }, 100);
     } else {
-        cardOfButton.innerHTML = "0";
         cardOfButton.classList.add("card-wrong-answer");
+        setTimeout(() => {
+            while (cardOfButton.firstChild) {
+                cardOfButton.removeChild(cardOfButton.lastChild);
+            }
+            cardOfButton.innerHTML = "0";
+        }, 100);
     }
+    cardOfButton.removeEventListener("click", turnCard);
 }

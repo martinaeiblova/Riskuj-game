@@ -62,7 +62,7 @@ const riskujCategories = [
             {
                 question: "Kdo pohádku režíroval?",
                 answer: ["Věra Chytilová", "Zdeněk Troška"],
-                correct: "Věra Chytilová",
+                correct: "Zdeněk Troška",
                 level: "medium",
             },
             {
